@@ -1,0 +1,10 @@
+@import "./variables.scss";
+
+@mixin container {
+    background-color: $background-secondary;
+    color: $color-main;
+    backdrop-filter: blur(8px);
+    padding: 1.5rem;
+    border-radius: 12px;
+    cursor: pointer;
+}

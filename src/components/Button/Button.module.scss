@@ -1,0 +1,17 @@
+@import "../../scss/variables.scss";
+
+.button{
+    font-size: 16px;
+    color: $color-main;
+    box-sizing: unset;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: $highlighted-dull;
+    transition: .5s cubic-bezier(0.215, 0.610, 0.355, 1);
+    cursor: pointer;
+
+    &:hover{
+        background-color: $highlighted;
+    }
+}

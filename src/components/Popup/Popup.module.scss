@@ -1,0 +1,43 @@
+@import "../../scss/variables.scss";
+
+.PopupWrapper{
+    background-color: $popupWrapper-background;
+    position: fixed;
+    z-index: 5;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    .InteractionMenu{
+        position: relative;
+        display: flex;
+        justify-content: right;
+        &>*{
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .Popup{
+        min-width: 50dvw;
+        min-height: 70dvh;
+        background-color: $popup-background;
+        color: $color-secondary;
+
+        padding: 2rem 5rem;
+
+        border-radius: $popup-borderRadius;
+
+        overflow: auto;
+    }
+}
+
+.active{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

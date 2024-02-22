@@ -13,7 +13,6 @@ const Task = ({item, onDragEnd} : {item : TaskType, onDragEnd: (item : any, item
     useEffect(()=>{
         if(ref.current){
             const rect = ref.current.getBoundingClientRect();
-            console.log(rect.top, rect.left, rect.width, rect.height);
             setDragConstraints({left: 0, top: 0, right: 0, bottom: 0})
         }
     }, [])
@@ -30,7 +29,7 @@ const Task = ({item, onDragEnd} : {item : TaskType, onDragEnd: (item : any, item
             dragElastic={0.5}
         >
             <h4 className={styles.title}>{item.title} {item.id}</h4>
-            <p className={styles.description}>{item.description}</p>
+            <p className={styles.description} dangerouslySetInnerHTML={item.description ? {__html: item.description} : {__html: ""}}></p>
         </motion.div>
     );
 };

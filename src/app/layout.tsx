@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import '../scss/globals.scss'
 import Header from '@/components/Header/Header'
 import { USER_DATA } from './layout.constants'
+import Providers from '@/redux/prodiver'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang='en'>
             <body className={inter.className}>
-                <Header user={USER_DATA}/>
-                {children}
+                <Providers>
+                    {children}
+                </Providers>
             </body>
         </html>
     )

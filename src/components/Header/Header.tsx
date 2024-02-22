@@ -9,7 +9,7 @@ import Popup from "../Popup/Popup";
 import AddTask from "../AddTask/AddTask";
 import { useState } from "react";
 
-const Header = ({user} : {user: User}) => {
+const Header = ({user, tasksRefetch} : {user: User, tasksRefetch: any}) => {
     const [activeAddTask, setActiveAddTask] = useState<boolean>(false)
 
     const toggleAddTaskPopup = () => {
@@ -41,7 +41,7 @@ const Header = ({user} : {user: User}) => {
             { 
                 user.role == UserRoles.Admin  ? 
                     <Popup active={activeAddTask} onClose={toggleAddTaskPopup}>
-                        <AddTask/>
+                        <AddTask refetch={tasksRefetch}/>
                     </Popup>
                 :
                     null

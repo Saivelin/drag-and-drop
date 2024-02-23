@@ -9,3 +9,9 @@ export interface User {
     name: string
     role: UserRoles
 }
+
+export interface UserDto {
+    name: string
+    role: UserRoles
+    password: string
+}

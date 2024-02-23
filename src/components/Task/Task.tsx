@@ -28,7 +28,7 @@ const Task = ({item, onDragEnd} : {item : TaskType, onDragEnd: (item : any, item
             dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
             dragElastic={0.5}
         >
-            <h4 className={styles.title}>{item.title} {item.id}</h4>
+            <h4 className={styles.title}>{item.title}</h4>
             <p className={styles.description} dangerouslySetInnerHTML={item.description ? {__html: item.description} : {__html: ""}}></p>
         </motion.div>
     );

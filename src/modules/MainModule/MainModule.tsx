@@ -53,7 +53,7 @@ const MainModule = ({tasksData, tasksRefetch} : {tasksData: TaskType[], tasksRef
 
     return (
         <>
-            <Header user={USER_DATA} tasksRefetch={tasksRefetch}/>
+            <Header user={USER_DATA} />
             <main>
                 <div className={styles.container}>
                     <div ref={container} className={styles.rowContainer}>

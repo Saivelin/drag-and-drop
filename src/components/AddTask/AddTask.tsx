@@ -9,11 +9,12 @@ import { StatusEnum } from "@/types/Tasks";
 import Input from "../Input/Input";
 import MultiSelect from "../MultiSelect/MultiSelect";
 import { useGetAllUsersQuery } from "@/redux/services/userApi";
+import { useSelector } from "react-redux";
 
 let editor_content_style = `
 `
 
-const AddTask = ({refetch} : {refetch: any}) => {
+const AddTask = () => {
     const [title, setTitle] = useState<string>("")
     const [description, setDescription] = useState<string>("")
     const [deadline, setDeadline] = useState<string>("")
@@ -37,7 +38,8 @@ const AddTask = ({refetch} : {refetch: any}) => {
             executors: executors,
             status: StatusEnum.Created
         }
-        submitForm(data).then((res: any)=>{refetch(); console.log(res)})
+        submitForm(data)
+        //.then((res: any)=>{tasksRefetch(); console.log(res)})
     }
 
     return (

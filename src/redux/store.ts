@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { taskApi } from './services/taskApi'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { userApi } from './services/userApi'
+import tasksReducer from "./reducers/tasks"
 
 export const store = configureStore({
     reducer: {
         [taskApi.reducerPath]: taskApi.reducer,
         [userApi.reducerPath]: userApi.reducer,
+        tasksReducer: tasksReducer
     },
     middleware: getDefaultMiddleware =>
         getDefaultMiddleware({}).concat([taskApi.middleware, userApi.middleware]),

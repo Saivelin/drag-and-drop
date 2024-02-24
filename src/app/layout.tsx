@@ -4,6 +4,7 @@ import '../scss/globals.scss'
 import Header from '@/components/Header/Header'
 import { USER_DATA } from './layout.constants'
 import Providers from '@/redux/prodiver'
+import AddTask from '@/components/AddTask/AddTask'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang='en'>
             <body className={inter.className}>
                 <Providers>
+                    <Header user={USER_DATA} />
                     {children}
                 </Providers>
             </body>

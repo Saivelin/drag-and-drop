@@ -10,8 +10,16 @@ import { areElementsOverlapping } from "@/helpers/elementsOverlapping";
 import { useGetAllTasksQuery, useUpdateTaskMutation } from "@/redux/services/taskApi";
 import Header from "@/components/Header/Header";
 import { USER_DATA } from "@/app/layout.constants";
+import Popup from "@/components/Popup/Popup";
+import TaskPopup from "@/components/TaskPopup/TaskPopup";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { togglePopup } from "@/redux/reducers/popup";
 
 const MainModule = ({tasksData, tasksRefetch} : {tasksData: TaskType[], tasksRefetch: any}) => {
+    const popup = useSelector((state: any)=> state.popupReducer)
+    const dispatch = useDispatch()
+
     const [updateTask] = useUpdateTaskMutation()
 
     const [tasks, setTasks] = useState<TaskType[]>([])
@@ -53,7 +61,6 @@ const MainModule = ({tasksData, tasksRefetch} : {tasksData: TaskType[], tasksRef
 
     return (
         <>
-            <Header user={USER_DATA} />
             <main>
                 <div className={styles.container}>
                     <div ref={container} className={styles.rowContainer}>
@@ -61,6 +68,9 @@ const MainModule = ({tasksData, tasksRefetch} : {tasksData: TaskType[], tasksRef
                         <Row title={StatusEnum.Process} items={tasks.filter((task) => task.status == StatusEnum.Process)} onDragEnd={onDragEnd}/>
                         <Row title={StatusEnum.Completed} items={tasks.filter((task) => task.status == StatusEnum.Completed)} onDragEnd={onDragEnd}/>
                     </div>
+                    <Popup active={popup.active} onClose={()=>{dispatch(togglePopup())}}>
+                        {popup.content}
+                    </Popup>
                 </div>
             </main>
         </>

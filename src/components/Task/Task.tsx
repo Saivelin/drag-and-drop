@@ -5,8 +5,12 @@ import styles from "./Task.module.scss"
 import { motion } from "framer-motion"
 import { useEffect, useRef, useState } from "react";
 import { DragConstraintsType } from "@/types/Framer";
+import { useDispatch } from "react-redux";
+import { setPopupContent, togglePopup } from "@/redux/reducers/popup";
+import TaskPopup from "../TaskPopup/TaskPopup";
 
 const Task = ({item, onDragEnd} : {item : TaskType, onDragEnd: (item : any, itemData: TaskType)=>void}) => {
+    const dispatch = useDispatch()
     const ref = useRef<HTMLDivElement>(null)
     const [dragConstraints, setDragConstraints] = useState<DragConstraintsType>({left: 0, right: 0, top: 0, bottom: 0})
 
@@ -27,6 +31,12 @@ const Task = ({item, onDragEnd} : {item : TaskType, onDragEnd: (item : any, item
             dragConstraints={dragConstraints}
             dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
             dragElastic={0.5}
+            onClick={()=>{
+                dispatch(setPopupContent(
+                    <TaskPopup item={item}/>
+                ));
+                dispatch(togglePopup());
+            }}
         >
             <h4 className={styles.title}>{item.title}</h4>
             <p className={styles.description} dangerouslySetInnerHTML={item.description ? {__html: item.description} : {__html: ""}}></p>

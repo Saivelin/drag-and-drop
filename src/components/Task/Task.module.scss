@@ -3,4 +3,7 @@
 
 .container{
     @include container();
+
+    position: relative;
+    z-index: 3;
 }

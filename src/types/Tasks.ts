@@ -6,6 +6,12 @@ export enum StatusEnum {
     Created="created"
 }
 
+export enum DeadlineStatus {
+    Earlier="earlier",
+    Today="today",
+    Overdue="overdue",
+}
+
 export interface TaskType {
     id: number,
     title: string

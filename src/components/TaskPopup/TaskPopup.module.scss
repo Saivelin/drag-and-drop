@@ -1,0 +1,20 @@
+@import "../../scss/variables.scss";
+
+.wrapper{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 5rem;
+    max-width: 70dvw;
+}
+
+.data{
+    max-width: 40dvw;
+}
+
+.additionalData{
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+

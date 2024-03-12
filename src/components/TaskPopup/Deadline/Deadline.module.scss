@@ -1,0 +1,15 @@
+@import "../../../scss/variables.scss";
+
+.deadline{
+    font-size: 1.2em;
+
+    &_earlier{
+        color: $earlier;
+    }
+    &_today{
+        color: $today;
+    }
+    &_overdue{
+        color: $overdue;
+    }
+}
